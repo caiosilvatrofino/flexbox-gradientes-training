@@ -1,0 +1,786 @@
+/* ==========================================================================
+   VARIÁVEIS CSS CUSTOMIZADAS
+   ========================================================================== */
+:root {
+  /* Cores principais - Clean UI */
+  --primary: #2c3e50;
+  --primary-light: #34495e;
+  --primary-dark: #1a252f;
+
+  --accent: #3498db;
+  --accent-light: #5dade2;
+  --accent-dark: #2980b9;
+
+  --secondary: #95a5a6;
+  --secondary-light: #bdc3c7;
+
+  --background: #f8f9fa;
+  --surface: #ffffff;
+  --border: #e9ecef;
+
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --text-light: #95a5a6;
+
+  /* Gradientes sutis */
+  --gradient-primary: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  --gradient-accent: linear-gradient(135deg, #3498db 0%, #5dade2 100%);
+  --gradient-light: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  --gradient-subtle: linear-gradient(
+    135deg,
+    rgba(52, 152, 219, 0.05) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+
+  /* Sombras modernas */
+  --shadow-sm: 0 2px 4px rgba(44, 62, 80, 0.06);
+  --shadow-md: 0 4px 12px rgba(44, 62, 80, 0.08);
+  --shadow-lg: 0 8px 25px rgba(44, 62, 80, 0.12);
+  --shadow-hover: 0 12px 35px rgba(52, 152, 219, 0.15);
+
+  /* Espaçamentos */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Tipografia */
+  --font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+}
+
+/* ==========================================================================
+   RESET E BASE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.header {
+  background: var(--gradient-light);
+  border-bottom: 1px solid var(--border);
+  padding: var(--spacing-lg) 0;
+  margin-bottom: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-content {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.header h1 i {
+  color: var(--accent);
+  margin-right: var(--spacing-xs);
+}
+
+.header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-normal);
+}
+
+/* ==========================================================================
+   FILTROS
+   ========================================================================== */
+.filters-section {
+  background: var(--surface);
+  padding: var(--spacing-lg);
+  border-radius: 12px;
+  margin-bottom: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.form-label {
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.form-control,
+.form-select {
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: var(--surface);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  outline: none;
+}
+
+.btn-primary {
+  background: var(--gradient-accent);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: var(--font-weight-medium);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ==========================================================================
+   MÉTRICAS (BUCKETS MENORES)
+   ========================================================================== */
+.metrics-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.metric-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100px; /* Altura menor */
+  box-shadow: var(--shadow-sm);
+}
+
+.metric-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--accent-light);
+}
+
+.metric-icon {
+  width: 60px; /* Ícone menor */
+  height: 60px;
+  background: var(--gradient-subtle);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.metric-icon i {
+  font-size: 1.5rem; /* Ícone menor */
+  color: var(--accent);
+}
+
+.metric-content {
+  flex: 1;
+}
+
+.metric-content h3 {
+  font-size: 1.75rem; /* Número menor */
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  line-height: 1;
+}
+
+.metric-content p {
+  font-size: 0.9rem; /* Texto menor */
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.metric-trend {
+  font-size: 0.8rem; /* Trend menor */
+  font-weight: var(--font-weight-medium);
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.metric-trend.positive {
+  color: #27ae60;
+  background: rgba(39, 174, 96, 0.1);
+}
+
+.metric-trend.negative {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+}
+
+.metric-trend.neutral {
+  color: var(--text-secondary);
+  background: var(--secondary-light);
+}
+
+/* ==========================================================================
+   DATATABLE
+   ========================================================================== */
+.datatable-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  background: var(--surface);
+}
+
+.card-header {
+  background: var(--primary);
+  border-bottom: none;
+  padding: var(--spacing-lg);
+  border-radius: 12px 12px 0 0;
+  color: white;
+}
+
+.card-header h2 {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-semibold);
+  color: white;
+  margin-bottom: var(--spacing-xs);
+}
+
+.card-header h2 i {
+  color: white;
+  margin-right: var(--spacing-xs);
+}
+
+.card-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.card-body {
+  padding: 0;
+  background: white;
+}
+
+/* Customização do DataTable - CLEAN VERSION */
+.table {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  background: white;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background: #34495e;
+  color: white;
+  border: none;
+  padding: 1rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+  border-bottom: 2px solid #2c3e50;
+}
+
+.table tbody tr {
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.table tbody tr:hover {
+  background: #e3f2fd !important;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.15);
+}
+
+.table tbody td {
+  padding: 1rem 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+  vertical-align: middle;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+/* Primeira coluna (ID) */
+.table tbody td:first-child {
+  color: #6c757d;
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+}
+
+/* Coluna de valores */
+.table tbody td:nth-child(5) {
+  color: #27ae60;
+  font-weight: 600;
+}
+
+/* Larguras específicas para colunas */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 8%;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 20%;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 12%;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  width: 12%;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+  width: 15%;
+}
+
+.table th:nth-child(6),
+.table td:nth-child(6) {
+  width: 12%;
+}
+
+.table th:nth-child(7),
+.table td:nth-child(7) {
+  width: 21%;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  font-weight: var(--font-weight-medium);
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem; /* Botões menores */
+  font-size: 0.75rem;
+  border-radius: 4px;
+  margin-right: 0.15rem; /* Menos espaço entre botões */
+}
+
+.btn-outline-primary {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-outline-primary:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-outline-secondary {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+.btn-outline-secondary:hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+}
+
+/* Customização DataTables - CLEAN VERSION */
+.dataTables_wrapper {
+  background: white;
+  border-radius: 0;
+  padding: 1.5rem;
+  margin-top: 0;
+  border: none;
+  border-top: 1px solid #dee2e6;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+  margin: 1rem 0;
+  color: #2c3e50;
+}
+
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_filter label,
+.dataTables_wrapper .dataTables_info {
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  margin-left: 0.5rem;
+  background: white;
+  color: #2c3e50;
+  font-size: 0.9rem;
+  width: 200px;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.dataTables_wrapper .dataTables_length select {
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  margin: 0 0.5rem;
+  background: white;
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.dataTables_wrapper .dataTables_length select:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.page-link {
+  border: 1px solid #dee2e6;
+  color: #2c3e50;
+  background: white;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+.page-link:hover {
+  background: #3498db;
+  border-color: #3498db;
+  color: white;
+}
+
+.page-item.active .page-link {
+  background: #3498db;
+  border-color: #3498db;
+  color: white;
+}
+
+.page-item.disabled .page-link {
+  background: #f8f9fa;
+  border-color: #dee2e6;
+  color: #6c757d;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .metric-card {
+    height: auto;
+    min-height: 80px;
+    padding: var(--spacing-sm);
+  }
+
+  .metric-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .metric-icon i {
+    font-size: 1.25rem;
+  }
+
+  .metric-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .metric-content p {
+    font-size: 0.85rem;
+  }
+
+  .filters-section {
+    padding: var(--spacing-md);
+  }
+
+  .card-header,
+  .card-body {
+    padding: var(--spacing-md);
+  }
+
+  .dataTables_wrapper {
+    padding: 0.5rem;
+  }
+
+  .table {
+    font-size: 0.75rem;
+  }
+
+  .table thead th,
+  .table tbody td {
+    padding: 0.5rem 0.25rem;
+  }
+
+  /* Esconder colunas menos importantes em mobile */
+  .table th:nth-child(4),
+  .table td:nth-child(4),
+  .table th:nth-child(6),
+  .table td:nth-child(6) {
+    display: none;
+  }
+
+  /* Reorganizar larguras para mobile */
+  .table th:nth-child(1),
+  .table td:nth-child(1) {
+    width: 10%;
+  }
+
+  .table th:nth-child(2),
+  .table td:nth-child(2) {
+    width: 30%;
+  }
+
+  .table th:nth-child(3),
+  .table td:nth-child(3) {
+    width: 20%;
+  }
+
+  .table th:nth-child(5),
+  .table td:nth-child(5) {
+    width: 20%;
+  }
+
+  .table th:nth-child(7),
+  .table td:nth-child(7) {
+    width: 20%;
+  }
+}
+
+@media (max-width: 576px) {
+  .metric-card {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-sm);
+    height: auto;
+    padding: var(--spacing-md);
+  }
+
+  .metric-content {
+    text-align: center;
+  }
+
+  .btn-sm {
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* ==========================================================================
+   ANIMAÇÕES
+   ========================================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Aplicar animações */
+.metric-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.metric-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.metric-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.metric-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.metric-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.metric-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.metric-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.metric-card:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.metric-card:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+.filters-section {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+.datatable-section {
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+/* ==========================================================================
+   LOADING STATES
+   ========================================================================== */
+.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top: 2px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 1;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   UTILITÁRIOS
+   ========================================================================== */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shadow-hover {
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-hover:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.border-gradient {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    var(--gradient-primary) border-box;
+}
+
+/* ==========================================================================
+   DARK MODE SUPPORT (Opcional)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #121212;
+    --surface: #1e1e1e;
+    --border: #333333;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-light: #808080;
+    --gradient-light: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+    --gradient-subtle: linear-gradient(
+      135deg,
+      rgba(52, 152, 219, 0.1) 0%,
+      rgba(30, 30, 30, 0.9) 100%
+    );
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  .form-control,
+  .form-select {
+    background: var(--surface);
+    color: var(--text-primary);
+    border-color: var(--border);
+  }
+
+  .table tbody tr:hover {
+    background: rgba(52, 152, 219, 0.05) !important;
+  }
+}

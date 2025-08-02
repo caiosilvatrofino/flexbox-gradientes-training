@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Analytics</title>
+
+    <!-- DataTables CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="dashboard-style.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- Header -->
+      <header class="header">
+        <div class="container">
+          <div class="header-content">
+            <h1><i class="fas fa-chart-line"></i> Dashboard Trainning</h1>
+            <p>Painel de controle moderno e intuitivo</p>
+          </div>
+        </div>
+      </header>
+
+      <div class="container">
+        <!-- Filtros -->
+        <section class="filters-section">
+          <div class="row g-3 align-items-end">
+            <div class="col-md-3">
+              <label for="dateFrom" class="form-label">Data Início</label>
+              <input
+                type="date"
+                id="dateFrom"
+                class="form-control"
+                value="2024-01-01"
+              />
+            </div>
+            <div class="col-md-3">
+              <label for="dateTo" class="form-label">Data Fim</label>
+              <input
+                type="date"
+                id="dateTo"
+                class="form-control"
+                value="2024-12-31"
+              />
+            </div>
+            <div class="col-md-3">
+              <label for="houseFilter" class="form-label">House</label>
+              <select id="houseFilter" class="form-select">
+                <option value="">Todas as Houses</option>
+                <option value="gryffindor">Gryffindor</option>
+                <option value="slytherin">Slytherin</option>
+                <option value="ravenclaw">Ravenclaw</option>
+                <option value="hufflepuff">Hufflepuff</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <button class="btn btn-primary w-100" onclick="applyFilters()">
+                <i class="fas fa-filter"></i> Aplicar Filtros
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Buckets (Métricas) -->
+        <section class="metrics-section">
+          <div class="row g-3">
+            <div class="col-lg-3 col-md-6">
+              <div class="metric-card">
+                <div class="metric-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <div class="metric-content">
+                  <h3>1,247</h3>
+                  <p>Total Usuários</p>
+                  <span class="metric-trend positive">
+                    <i class="fas fa-arrow-up"></i> +12%
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="metric-card">
+                <div class="metric-icon">
+                  <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="metric-content">
+                  <h3>R$ 847K</h3>
+                  <p>Vendas</p>
+                  <span class="metric-trend positive">
+                    <i class="fas fa-arrow-up"></i> +8%
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="metric-card">
+                <div class="metric-icon">
+                  <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="metric-content">
+                  <h3>2,854</h3>
+                  <p>Pedidos</p>
+                  <span class="metric-trend positive">
+                    <i class="fas fa-arrow-up"></i> +5%
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="metric-card">
+                <div class="metric-icon">
+                  <i class="fas fa-percentage"></i>
+                </div>
+                <div class="metric-content">
+                  <h3>18.3%</h3>
+                  <p>Taxa Conversão</p>
+                  <span class="metric-trend positive">
+                    <i class="fas fa-arrow-up"></i> +2%
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="metric-card">
+                <div class="metric-icon">
+                  <i class="fas fa-eye"></i>
+                </div>
+                <div class="metric-content">
+                  <h3>45.2K</h3>
+                  <p>Visualizações</p>
+                  <span class="metric-trend neutral">
+                    <i class="fas fa-minus"></i> 0%
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="metric-card">
+                <div class="metric-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="metric-content">
+                  <h3>4.8</h3>
+                  <p>Avaliações</p>
+                  <span class="metric-trend positive">
+                    <i class="fas fa-arrow-up"></i> +0.2
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="metric-card">
+                <div class="metric-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="metric-content">
+                  <h3>3m 42s</h3>
+                  <p>Tempo Médio</p>
+                  <span class="metric-trend negative">
+                    <i class="fas fa-arrow-down"></i> -15s
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="metric-card">
+                <div class="metric-icon">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div class="metric-content">
+                  <h3>94%</h3>
+                  <p>Metas</p>
+                  <span class="metric-trend positive">
+                    <i class="fas fa-arrow-up"></i> +4%
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DataTable -->
+        <section class="datatable-section">
+          <div class="card">
+            <div class="card-header">
+              <h2><i class="fas fa-table"></i> Relatório Detalhado</h2>
+              <p class="card-subtitle">
+                Dados filtrados por período e house selecionados
+              </p>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table
+                  id="dataTable"
+                  class="table table-hover"
+                  style="width: 100%"
+                >
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nome</th>
+                      <th>House</th>
+                      <th>Data</th>
+                      <th>Valor</th>
+                      <th>Status</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#001</td>
+                      <td>Harry Potter</td>
+                      <td><span class="badge bg-danger">Gryffindor</span></td>
+                      <td>15/03/2024</td>
+                      <td>R$ 1.250,00</td>
+                      <td><span class="badge bg-success">Ativo</span></td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-primary"
+                          title="Editar"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          class="btn btn-sm btn-outline-secondary"
+                          title="Ver detalhes"
+                        >
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>#002</td>
+                      <td>Hermione Granger</td>
+                      <td><span class="badge bg-danger">Gryffindor</span></td>
+                      <td>14/03/2024</td>
+                      <td>R$ 2.100,00</td>
+                      <td><span class="badge bg-primary">Concluído</span></td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-primary"
+                          title="Editar"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          class="btn btn-sm btn-outline-secondary"
+                          title="Ver detalhes"
+                        >
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>#003</td>
+                      <td>Draco Malfoy</td>
+                      <td><span class="badge bg-success">Slytherin</span></td>
+                      <td>13/03/2024</td>
+                      <td>R$ 890,00</td>
+                      <td><span class="badge bg-warning">Pendente</span></td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-primary"
+                          title="Editar"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          class="btn btn-sm btn-outline-secondary"
+                          title="Ver detalhes"
+                        >
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>#004</td>
+                      <td>Luna Lovegood</td>
+                      <td><span class="badge bg-info">Ravenclaw</span></td>
+                      <td>12/03/2024</td>
+                      <td>R$ 1.750,00</td>
+                      <td><span class="badge bg-success">Ativo</span></td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-primary"
+                          title="Editar"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          class="btn btn-sm btn-outline-secondary"
+                          title="Ver detalhes"
+                        >
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>#005</td>
+                      <td>Cedric Diggory</td>
+                      <td>
+                        <span class="badge bg-warning text-dark"
+                          >Hufflepuff</span
+                        >
+                      </td>
+                      <td>11/03/2024</td>
+                      <td>R$ 3.200,00</td>
+                      <td><span class="badge bg-primary">Concluído</span></td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-primary"
+                          title="Editar"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          class="btn btn-sm btn-outline-secondary"
+                          title="Ver detalhes"
+                        >
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>#006</td>
+                      <td>Ron Weasley</td>
+                      <td><span class="badge bg-danger">Gryffindor</span></td>
+                      <td>10/03/2024</td>
+                      <td>R$ 950,00</td>
+                      <td><span class="badge bg-success">Ativo</span></td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-primary"
+                          title="Editar"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          class="btn btn-sm btn-outline-secondary"
+                          title="Ver detalhes"
+                        >
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>#007</td>
+                      <td>Severus Snape</td>
+                      <td><span class="badge bg-success">Slytherin</span></td>
+                      <td>09/03/2024</td>
+                      <td>R$ 2.800,00</td>
+                      <td><span class="badge bg-primary">Concluído</span></td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-primary"
+                          title="Editar"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          class="btn btn-sm btn-outline-secondary"
+                          title="Ver detalhes"
+                        >
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>#008</td>
+                      <td>Cho Chang</td>
+                      <td><span class="badge bg-info">Ravenclaw</span></td>
+                      <td>08/03/2024</td>
+                      <td>R$ 1.400,00</td>
+                      <td><span class="badge bg-warning">Pendente</span></td>
+                      <td>
+                        <button
+                          class="btn btn-sm btn-outline-primary"
+                          title="Editar"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          class="btn btn-sm btn-outline-secondary"
+                          title="Ver detalhes"
+                        >
+                          <i class="fas fa-eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="dashboard-script.js"></script>
+  </body>
+</html>
